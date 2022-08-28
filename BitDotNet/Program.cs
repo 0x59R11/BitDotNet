@@ -36,7 +36,7 @@ using (var writer = new BinaryWriter(stream))
     }
 
     stream.Position = dotNetPointerRaw;
-    writer.Write(0); // BIT CB Bytes
+    writer.Write(0); // BIT CB Bytes (breaks dnlib example: Dnspy)
     stream.Position += 0x8;
-    writer.Write(0); // BIT Metadata size
+    writer.Write(0); // BIT Metadata size (breaks Mono.Cecil and maybe more :) examples: ILSpy, dotPeek)
 }
